@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #edf1f4;
+      perspective: 500px;
+      --c-wrap-shadow1: #f5f9fd;
+      --c-wrap-shadow2: #d8dbe5;
+      --c-wrap-bg: #e2e6eb;
+      --c-btn-shadow1: #d9dbe6;
+      --c-btn-shadow2: #f5f9fd;
+      --c-txt1: #aaa;
+      --c-txt2: #111;
+      transition: background-color 0.4s linear;
+    }
+    .dark {
+      background-color: #333;
+      --c-wrap-shadow1: #292929;
+      --c-wrap-shadow2: #202020;
+      --c-wrap-bg: #505050;
+      --c-btn-shadow1: #323232;
+      --c-btn-shadow2: #444;
+      --c-txt1: #888;
+      --c-txt2: #fff;
+    }
+    #btnWrapper {
+      margin: 0 auto;
+      position: relative;
+      width: 380px;
+      height: 80px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: var(--c-wrap-bg);
+      box-shadow: -10px -10px 15px var(--c-wrap-shadow1), 10px 10px 15px var(--c-wrap-shadow2);
+      transform-origin: var(--wraper-origin); /*旋转原点*/
+      transition: transform 1s cubic-bezier(0, 0, 0.48, 1), box-shadow 1s linear, background-color 1s linear;
+    }
+    .rotateWrap {
+      transform: rotateY(var(--wraper-rotate));
+    }
+    #btnWrapper::before {
+      content: "";
+      position: absolute;
+      left: var(--groove-left);
+      top: 12px;
+      width: calc(50% - 16px - 8px);
+      height: calc(100% - 24px);
+      border-radius: 12px;
+      box-shadow: inset 8px 8px 6px var(--c-btn-shadow1), 
+                  inset -5px -5px 15px var(--c-btn-shadow2), 
+                  inset -5px -5px 15px var(--c-btn-shadow2), 
+                  inset 7px 7px 6px var(--c-btn-shadow1);
+      transition: left 1s cubic-bezier(0.82, 0.12, 0.18, 0.88), box-shadow 1s linear;
+    }
+    .btn {
+      float: left;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      height: 100%;
+      padding: inherit;
+      color: var(--c-txt1);
+      cursor: pointer;
+      transition: color 1s linear;
+      animation: txtOutScale 1s linear;
+    }
+    .active {
+      color: var(--c-txt2);
+      transform: scale(1.1);
+      animation: txtEnterScale 1s linear;
+    }
+    /* 按钮选中缩放动画 */
+    @keyframes txtEnterScale {
+      0% {
+        transform: scale(1);
+      }
+
+      80% {
+        transform: scale(1.15);
+      }
+
+      100% {
+        transform: scale(1.1);
+      }
+    }
+    /* 按钮未选中缩放动画 */
+    @keyframes txtOutScale {
+      0% {
+        transform: scale(1.1);
+      }
+
+      80% {
+        transform: scale(0.95);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="btnWrapper">
+    <div class="btn active">btn1</div>
+    <div class="btn">btn2</div>
+  </div>
+</body>
+<script>
+  // 获取容器元素
+  let wrapper = document.getElementById('btnWrapper');
+  // 先给容器设置一个css变量并附初始值
+  wrapper.style.setProperty('--groove-left', '12px');
+  // 获取按钮元素
+  let btns = document.getElementsByClassName('btn');
+  for (let i = 0; i < btns.length; i++) {
+    // 给每个按钮添加事件
+    btns[i].addEventListener('mouseover', function (e) {
+      changeTheme(i === 1)
+      resetBtn(btns); // 初始化所有按钮类名
+      // 点击后，修改css变量的值
+      wrapper.style.setProperty('--groove-left', `calc(12px + ${i * 50}%)`);
+      wrapper.style.setProperty('--wraper-rotate', `${i === 0 ? -10 : 10}deg`)
+      wrapper.style.setProperty('--wraper-origin', `${i === 0 ? '75% top' : '25% top'}`)
+      wrapper.className = 'rotateWrap'
+      setTimeout(() => {
+        btns[i].className = 'btn active'; // 给被点击的按钮添加选中样式，注意不要丢了原始样式
+      }, 500);
+      setTimeout(() => {
+        wrapper.className = ''
+      }, 510);
+    })
+  }
+  function resetBtn(btns) {
+    for (let i = 0; i < btns.length; i++) {
+      setTimeout(() => {
+        btns[i].className = 'btn';
+      }, 100)
+    }
+  }
+  function changeTheme(change) {
+    let body = document.body
+    body.className = change ? 'dark' : ''
+  }
+</script>
+</html>

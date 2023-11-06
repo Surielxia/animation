@@ -1,0 +1,458 @@
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+body {
+  background-color: #fcf7cd;
+}
+
+#app {
+  width: 100%;
+  min-width: 320px;
+  height: 100vh;
+  position: relative;
+  background-color: #fcf7cd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.tiger {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  top: 25px;
+}
+
+.tiger .tiger-head {
+  position: relative;
+  width: 100%;
+  height: 85%;
+  border-radius: 50% 50% 30% 30%;
+  background-color: #3a6ab3;
+}
+
+.tiger .tiger-head::before {
+  content: "";
+  display: block;
+  width: 320px;
+  height: 120px;
+  background-color: #ffba0d;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  margin-left: -160px;
+  border-radius: 100px;
+}
+
+.tiger .tiger-mouth {
+  position: absolute;
+  width: 270px;
+  height: 80px;
+  left: 50%;
+  margin-left: -135px;
+  border-radius: 15px;
+  bottom: 20px;
+  background-color: #9e0e18;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.tiger .tiger-mouth > div {
+  position: relative;
+  height: 50px;
+  width: 85%;
+  background-color: #c22736;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.tiger .tiger-mouth > div.bite {
+  -webkit-animation: bite-mouth 0.75s ease-in;
+          animation: bite-mouth 0.75s ease-in;
+}
+
+.tiger .tiger-mouth > div.bite span {
+  -webkit-animation: bite-tooth 0.85s ease-in;
+          animation: bite-tooth 0.85s ease-in;
+}
+
+@-webkit-keyframes bite-mouth {
+  0%,
+  100% {
+    height: 50px;
+  }
+  50% {
+    height: 10px;
+  }
+}
+
+@keyframes bite-mouth {
+  0%,
+  100% {
+    height: 50px;
+  }
+  50% {
+    height: 10px;
+  }
+}
+
+@-webkit-keyframes bite-tooth {
+  0%,
+  100% {
+    top: 0;
+  }
+  50% {
+    top: 10px;
+  }
+}
+
+@keyframes bite-tooth {
+  0%,
+  100% {
+    top: 0;
+  }
+  50% {
+    top: 10px;
+  }
+}
+
+.tiger .tiger-nose {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  width: 70px;
+  height: 190px;
+  margin-left: -35px;
+  background-color: #9e0e18;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 100% 100% 0 0;
+}
+
+.tiger .tiger-nose span {
+  width: 30px;
+  height: 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  background-color: white;
+  border: 10px solid #3a6ab3;
+  border-radius: 50%;
+  margin: 15% 0;
+  position: relative;
+}
+
+.tiger .tiger-nose::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  background-color: #9e0e18;
+  width: 118px;
+  height: 118px;
+  border-radius: 0 100% 0 100%;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.tiger .tiger-eye {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-color: #9e0e18;
+  position: absolute;
+  top: 28px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: 0.15s -webkit-transform ease-in;
+  transition: 0.15s -webkit-transform ease-in;
+  transition: 0.15s transform ease-in;
+  transition: 0.15s transform ease-in, 0.15s -webkit-transform ease-in;
+}
+
+.tiger .tiger-eye.big > span {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.tiger .tiger-eye > span {
+  display: block;
+  width: 80px;
+  height: 80px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 50% 50% 50% 50%;
+  border: 10px solid white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.tiger .tiger-eye > span::after {
+  content: "";
+  display: block;
+  background-color: black;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+.tiger .tiger-eye.left {
+  left: -5px;
+  border-radius: 0% 50% 50% 50%;
+}
+
+.tiger .tiger-eye.right {
+  right: -5px;
+  border-radius: 50% 0% 50% 50%;
+}
+
+.tiger .tooth {
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+  left: 20px;
+  right: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.tiger .tooth span {
+  position: relative;
+  display: block;
+  width: 0;
+  height: 0;
+  margin: 0 5px;
+  border-width: 20px 15px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+  cursor: pointer;
+  -webkit-transition: 0.2s -webkit-transform;
+  transition: 0.2s -webkit-transform;
+  transition: 0.2s transform;
+  transition: 0.2s transform, 0.2s -webkit-transform;
+}
+
+.tiger .tooth span.active {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+.tiger .tooth.down {
+  -webkit-transform: scaleY(-1);
+          transform: scaleY(-1);
+  margin-top: -10px;
+}
+
+.tiger .tiger-ear {
+  position: absolute;
+  width: 100%;
+  top: -30px;
+}
+
+.tiger .tiger-ear::before {
+  content: "";
+  left: 10px;
+  display: block;
+  position: absolute;
+  width: 140px;
+  height: 160px;
+  border-radius: 0 100% 0 100%;
+  background-color: #ffba0d;
+  -webkit-transform: rotate(10deg);
+          transform: rotate(10deg);
+  -webkit-animation: ear-left-move 0.9s infinite alternate linear;
+          animation: ear-left-move 0.9s infinite alternate linear;
+}
+
+.tiger .tiger-ear::after {
+  content: "";
+  right: 10px;
+  display: block;
+  position: absolute;
+  width: 140px;
+  height: 160px;
+  border-radius: 100% 0 100% 0;
+  background-color: #ffba0d;
+  -webkit-transform: rotate(-10deg);
+          transform: rotate(-10deg);
+  -webkit-animation: ear-right-move 0.9s infinite alternate linear;
+          animation: ear-right-move 0.9s infinite alternate linear;
+}
+
+@-webkit-keyframes ear-left-move {
+  0% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  100% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+}
+
+@keyframes ear-left-move {
+  0% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  100% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+}
+
+@-webkit-keyframes ear-right-move {
+  0% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+  100% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+}
+
+@keyframes ear-right-move {
+  0% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+  100% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+}
+
+.tiger .tiger-beard {
+  position: absolute;
+  border-radius: 50%;
+  width: 110px;
+  height: 110px;
+  background-color: transparent;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-box-shadow: -120px 0px 0 #3a6ab3, 120px 0px 0 #3a6ab3, 60px 70px 0 #3a6ab3, -60px 70px 0 #3a6ab3, 0px 80px 0 #3a6ab3;
+          box-shadow: -120px 0px 0 #3a6ab3, 120px 0px 0 #3a6ab3, 60px 70px 0 #3a6ab3, -60px 70px 0 #3a6ab3, 0px 80px 0 #3a6ab3;
+}
+
+.tiger .word {
+  width: 6em;
+  height: 2em;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -3em;
+  margin-top: -1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #ffba0d;
+  font-family: "fangsong", Arial, sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+  text-shadow: 2px 1px 4px #9e0e18;
+  -webkit-text-stroke: 1px #ffba0d;
+  z-index: 999;
+  -webkit-animation: bom 2s linear;
+          animation: bom 2s linear;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.tiger .word.hide {
+  display: none;
+}
+
+@-webkit-keyframes bom {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.1) translateY(0);
+            transform: scale(0.1) translateY(0);
+  }
+  40%,
+  80% {
+    -webkit-transform: scale(1) translateY(-48px);
+            transform: scale(1) translateY(-48px);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1) translateY(-48px);
+            transform: scale(1) translateY(-48px);
+    opacity: 0;
+  }
+}
+
+@keyframes bom {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.1) translateY(0);
+            transform: scale(0.1) translateY(0);
+  }
+  40%,
+  80% {
+    -webkit-transform: scale(1) translateY(-48px);
+            transform: scale(1) translateY(-48px);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1) translateY(-48px);
+            transform: scale(1) translateY(-48px);
+    opacity: 0;
+  }
+}
+/*# sourceMappingURL=index.css.map */

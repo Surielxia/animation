@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/index.css" type="text/css" />
+</head>
+<body>
+  <div class="g-wrap">
+    <div class="g-aurora"></div>
+    <div class="text-box">
+      <p class="text">
+        大海之南<br />
+      天穹之南<br />
+      绚幻的色彩<br />
+      是你<br />
+      如极光一般<br />
+      
+      扰动的波<br />
+      扰动生命的光芒<br />
+      
+      青色如你<br />
+      粉红如你<br />
+      淡蓝亦如你<br />
+      
+      静谧中醒来<br />
+      一片忧伤是谁剪裁<br />
+      
+      此刻<br />
+      蔚蓝的天空安静地凝视<br />
+      蔚蓝的海<br />
+      
+      一切<br />
+      归于沉寂<br />
+      
+      极光的色彩是留不住的<br />
+      记忆的霓裳何以粉饰离开<br />
+      
+      谁以为接近了永恒<br />
+      谁就会远离了真实<br />
+      
+      美<br />
+      总是短暂的<br />
+      正如古战场的烟尘<br />
+      最终会落下来<br />
+      覆盖曾经飞翔的干戈<br />
+      
+      泛黄的史册<br />
+      记载着空白<br />
+      
+      很多时候<br />
+      相遇一场<br />
+      不就是<br />
+      不就是<br />
+      一场极光的交会<br />
+      
+      短暂到<br />
+      来不及回味<br />
+      短暂到<br />
+      经不起别离<br />
+
+      为此<br />
+      我愿化为那片天空<br />
+      你每次出现<br />
+      都在我的怀里
+    </p>
+    </div>
+    
+  </div>
+  
+  <svg id='blob' version='1.1' xmlns='http://www.w3.org/2000/svg'>
+      <defs>
+          <filter id='wave'>
+              <feturbulence basefrequency='0.00510 0.01399' id='turbulence' numoctaves='3' result='noise' seed='10' />
+              <fedisplacementmap id='displacement' in2='noise' in='SourceGraphic' scale='96' />
+          </filter>
+      </defs>
+  </svg>
+  
+</body>
+</html>
+<script src="./js/index.js"></script>

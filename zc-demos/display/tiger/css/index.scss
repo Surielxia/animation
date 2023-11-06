@@ -1,0 +1,298 @@
+$blue: rgb(58, 106, 179);
+$green: rgb(4, 133, 120);
+$red: rgb(158, 14, 24);
+$yellow: rgb(255, 186, 13);
+$tomato: rgb(194, 39, 54);
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  user-select: none;
+}
+body{
+  background-color: rgb(252, 247, 205);
+}
+#app {
+  width: 100%;
+  min-width: 320px;
+  height: 100vh;
+  position: relative;
+  background-color: rgb(252, 247, 205);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tiger {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  top:25px;
+  .tiger-head {
+    position: relative;
+    width: 100%;
+    height: 85%;
+    border-radius: 50% 50% 30% 30%;
+    background-color: $blue;
+    &::before {
+      content: "";
+      display: block;
+      width: 320px;
+      height: 120px;
+      background-color: $yellow;
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      margin-left: -160px;
+      border-radius: 100px;
+    }
+  }
+  .tiger-mouth {
+    position: absolute;
+    width: 270px;
+    height: 80px;
+    left: 50%;
+    margin-left: -135px;
+    border-radius: 15px;
+    bottom: 20px;
+    background-color: $red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & > div {
+      position: relative;
+      height: 50px;
+      width: 85%;
+      background-color: $tomato;
+      border-radius: 50px;
+      overflow: hidden;
+      &.bite {
+        animation: bite-mouth 0.75s ease-in;
+        span {
+          animation: bite-tooth 0.85s ease-in;
+        }
+      }
+      @keyframes bite-mouth {
+        0%,
+        100% {
+          height: 50px;
+        }
+        50% {
+          height: 10px;
+        }
+      }
+      @keyframes bite-tooth {
+        0%,
+        100% {
+          top: 0;
+        }
+        50% {
+          top: 10px;
+        }
+      }
+    }
+  }
+  .tiger-nose {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    width: 70px;
+    height: 190px;
+    margin-left: -35px;
+    background-color: $red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100% 100% 0 0;
+    span {
+      width: 30px;
+      height: 30px;
+      box-sizing: border-box;
+      display: block;
+      background-color: white;
+      border: 10px solid $blue;
+      border-radius: 50%;
+      margin: 15% 0;
+      position: relative;
+    }
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      background-color: $red;
+      width: 118px;
+      height: 118px;
+      border-radius: 0 100% 0 100%;
+      transform: rotate(45deg);
+    }
+  }
+  .tiger-eye {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background-color: $red;
+    position: absolute;
+    top: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.15s transform ease-in;
+    &.big {
+      & > span {
+        transform: scale(1.05);
+      }
+    }
+    & > span {
+      display: block;
+      width: 80px;
+      height: 80px;
+      box-sizing: border-box;
+      border-radius: 50% 50% 50% 50%;
+      border: 10px solid white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &::after {
+        content: "";
+        display: block;
+        background-color: black;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+      }
+    }
+    &.left {
+      left: -5px;
+      border-radius: 0% 50% 50% 50%;
+    }
+    &.right {
+      right: -5px;
+      border-radius: 50% 0% 50% 50%;
+    }
+  }
+  .tooth {
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    span {
+      position: relative;
+      display: block;
+      width: 0;
+      height: 0;
+      margin: 0 5px;
+      border-width: 20px 15px;
+      border-style: solid;
+      border-color: white transparent transparent transparent;
+      cursor: pointer;
+      transition: 0.2s transform;
+      &.active {
+        transform: translateY(-10px);
+      }
+    }
+    &.down {
+      transform: scaleY(-1);
+      margin-top: -10px;
+    }
+  }
+  .tiger-ear {
+    position: absolute;
+    width: 100%;
+    top: -30px;
+    &::before {
+      content: "";
+      left: 10px;
+      display: block;
+      position: absolute;
+      width: 140px;
+      height: 160px;
+      border-radius: 0 100% 0 100%;
+      background-color: $yellow;
+      transform: rotate(10deg);
+      animation: ear-left-move 0.9s infinite alternate linear;
+    }
+    &::after {
+      content: "";
+      right: 10px;
+      display: block;
+      position: absolute;
+      width: 140px;
+      height: 160px;
+      border-radius: 100% 0 100% 0;
+      background-color: $yellow;
+      transform: rotate(-10deg);
+      animation: ear-right-move 0.9s infinite alternate linear;
+    }
+    @keyframes ear-left-move {
+      0% {
+        transform: rotate(5deg);
+      }
+      100% {
+        transform: rotate(15deg);
+      }
+    }
+    @keyframes ear-right-move {
+      0% {
+        transform: rotate(-15deg);
+      }
+      100% {
+        transform: rotate(-5deg);
+      }
+    }
+  }
+  .tiger-beard {
+    position: absolute;
+    border-radius: 50%;
+    width: 110px;
+    height: 110px;
+    background-color: transparent;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: -120px 0px 0 $blue, 120px 0px 0 $blue, 60px 70px 0 $blue,
+      -60px 70px 0 $blue, 0px 80px 0 $blue;
+  }
+  .word {
+    width: 6em;
+    height: 2em;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -3em;
+    margin-top: -1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $yellow;
+    font-family: "fangsong", Arial, sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    text-shadow: 2px 1px 4px $red;
+    -webkit-text-stroke: 1px $yellow;
+    z-index: 999;
+    animation: bom 2s linear;
+    animation-fill-mode: forwards;
+    &.hide{
+      display: none;
+    }
+    @keyframes bom {
+      0% {
+        opacity: 0;
+        transform: scale(0.1) translateY(0);
+      }
+      40%,
+      80% {
+        transform: scale(1) translateY(-48px);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1) translateY(-48px);
+        opacity: 0;
+      }
+    }
+  }
+}
